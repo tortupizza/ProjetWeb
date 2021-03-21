@@ -1,7 +1,24 @@
+
 body {
   padding-bottom: 20px;
 }
 
-.navbar {
+ {
   margin-bottom: 20px;
+}
+form{
+	text-align:center;
+	box-sizing: border-box;
+	width: 100%;
+	border: solid #5B6DCD 10px;
+	padding: 5px;
+	width: 50%;
+
+}
+form champ {width:600px; height:35px;}
+p
+{
+	font-weight: bold
+	100%
+	"Calibri", cursive;
 }
