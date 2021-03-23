@@ -25,3 +25,24 @@
 .large {
     font-size: 1.2em;
 }
+
+#droits {
+    margin-left: 15%;
+    margin-right: 10%;
+    display: grid;
+    grid-template-columns: 20px 1fr;
+    grid-gap: 10px;
+}
+
+#droits[hidden]{
+    display: none;
+}
+
+input[type='checkbox'] {
+    grid-column: 1;
+}
+
+#droits label{
+    text-align: left;
+    grid-column: 2;
+}
