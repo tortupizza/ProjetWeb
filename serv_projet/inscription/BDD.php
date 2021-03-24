@@ -79,6 +79,6 @@ try{
 
 
 
-    header('Location: ../connexion/connexion.php');
+    header('Location: ../connexion');
     exit();
 ?>

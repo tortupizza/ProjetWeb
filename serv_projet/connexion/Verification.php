@@ -16,17 +16,20 @@ try{
         die;
     }
     if (!$stmt->fetch()){
-        header('Location: connexion.php?badlogin=1');
+        header('Location:../connexion?badlogin=1');
         exit();
     }else{
         session_start();
         session_destroy();
         session_start();
-        $stmt=$bdd->prepare("SELECT ID FROM utilisateur WHERE Username = :user AND MDP = :mdp ;");
+        $stmt=$bdd->prepare("SELECT * FROM utilisateur WHERE Username = :user AND MDP = :mdp ;");
         $stmt->bindParam(":user", $_POST["Username"]);
         $stmt->bindParam(":mdp", $mdp);
         $stmt->execute();
         $rtrn=$stmt->fetch();
+        $_SESSION['user']=$rtrn["Username"];
+        $_SESSION['nom']=$rtrn["Nom"];
+        $_SESSION['prenom']=$rtrn["Prenom"];
         $_SESSION['ID']=$rtrn["ID"];
 
         //recherche du type de l'utilisateur connecté
@@ -76,10 +79,9 @@ try{
             $_SESSION['droits']=$rtrn["droits"];
         }
 
-        echo "utilisateur $user présent dans la BDD avec l'ID ".$_SESSION['ID']." <br> Vous êtes connecté avec le role :".$_SESSION["type"]."<br> <a href='../inscription/inscription.php' class='tab'> Inscription</a>";
-        if (isset($_SESSION['droits'])){
-            echo "<br>Tu es délégué avec ces droits : ".$_SESSION['droits'];
-        }
+        
         $stmt->closeCursor();
+        header('Location: ../homepage');
+        exit();
     }
 ?>

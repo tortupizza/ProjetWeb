@@ -1,7 +1,14 @@
+#Utilisateur {
+    width :20%;
+    position: absolute;
+    right: 0;
+    top : 20%;
+}
+
+
 #TitrePincipal {
     color:#0000FF;
 }
-
 
 footer {
     border:#000000;

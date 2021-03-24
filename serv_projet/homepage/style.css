@@ -1,0 +1,12 @@
+#container {
+    margin: auto;
+    width: 50%;
+    border: solid rgba(131, 124, 138, 0.692) 1px;
+    text-align: center;
+    padding-bottom: 20px;
+    padding-top: 10px;
+}
+
+.form-control {
+    margin: auto;
+}
