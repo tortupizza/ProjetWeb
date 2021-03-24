@@ -1,14 +1,19 @@
 <?php session_start(); ?>
 <!DOCTYPE html>
+<?php
+    include("../navbar/nav_bar.html");
+?>
 <html>
 
     <head>
         <meta charset="utf-8">
-        <title>Page de connexion</title>
+        <title>Page d'inscription</title>
         <link rel="stylesheet" type="text/css" href="style.css">
     </head>
 
     <body>
+        <div w3-include-html="../nav_bar.html"></div> 
+
         <div id="espacedeconnexion">
 
         <img src="../SS.png" alt="logoStageSupp" id="logo" >
@@ -210,10 +215,13 @@
 
                 </form>
             
-            <?php } ?>
+            <?php }else{ ?>
+                <div class="large"> Vous n'avez pas les droits pour inscrire des utilisateurs. </div>
+                <?php } ?>
             <br>
             <a href="../connexion/Connexion.php" class="tab">Connexion</a>
         </div>
-
+        
+        <?php include('../footer/footer.html') ?>
 
     </body>

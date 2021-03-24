@@ -7,6 +7,9 @@
     
 ?>
 <!DOCTYPE html>
+<?php
+    include("../navbar/nav_bar.html");
+?>
 <html>
 
     <head>
@@ -39,7 +42,7 @@
 
                 <p>
                     <label class="large" for="Mdp">Mot de passe :</label><br>
-                    <input type="password" id="Mdp" name="Mdp" required>
+                    <input class="large" type="password" id="Mdp" name="Mdp" required>
                     <br>
                     <a href="connexion.php?nullos"> Mot de passe oublié</a>
                 </p>
@@ -49,5 +52,8 @@
 
             </form>
         </div>
+        
+        <?php include('../footer/footer.html') ?>
+
     </body>
 
