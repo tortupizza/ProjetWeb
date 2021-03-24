@@ -9,7 +9,7 @@
     </head>
 
     <body>
-        <div id="pagedeconnexion">
+        <div id="espacedeconnexion">
 
         <img src="../SS.png" alt="logoStageSupp" id="logo" >
 
