@@ -54,8 +54,8 @@ try{
     if($_POST["delegue"]){
 
         $nbdroits = 35;
-        $droits = "";
-        for($i = 1 ; $i<=$nbdroits ; $i++){
+        $droits = "1";
+        for($i = 2 ; $i<=$nbdroits ; $i++){
             $droit = "SFx".$i;
             if(isset($_POST[$droit])){
 

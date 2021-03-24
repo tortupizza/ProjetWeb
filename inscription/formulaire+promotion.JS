@@ -1,7 +1,7 @@
 var radioBtn = document.querySelectorAll('.radioBtn');
 
 function Etudiant(){
-    if (radioBtn[0].checked){
+    if (document.getElementById('Etudiant').checked){
         document.getElementById("CasePromotion").hidden = false;
         document.getElementById("Promotion").required = true;
     }else{

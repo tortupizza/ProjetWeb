@@ -44,7 +44,7 @@
                     <a href="connexion.php?nullos"> Mot de passe oublié</a>
                 </p>
 
-                <a href="../inscription/inscription.html" class="tab"> Inscription</a>
+                <a href="../inscription/inscription.php" class="tab"> Inscription</a>
                 <button type="submit" class="large">Valider</button>
 
             </form>
