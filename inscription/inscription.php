@@ -9,7 +9,7 @@
     </head>
 
     <body>
-        <div id="page de création de compte">
+        <div id="pagedeconnexion">
 
         <img src="../SS.png" alt="logoStageSupp" id="logo" >
 
