@@ -5,6 +5,20 @@
     top : 20%;
 }
 
+#my-form input {
+    display: inline-block;
+    margin-right: 2%;
+}
+
+#my-form select {
+    padding-top: 0.375rem;
+    padding-bottom: 0.375rem;
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+    border: 1px solid #ced4da;
+    border-radius: 0.25rem;
+}
+
 
 #TitrePincipal {
     color:#0000FF;

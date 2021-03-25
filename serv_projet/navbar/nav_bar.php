@@ -17,9 +17,31 @@
         <?php } ?>
         
         <?php if(isset($_SESSION['type'])){ ?>
-          <a class="nav-link" href="../connexion/Deconnexion.php">Se déconnecter</a>
+          <a class="nav-link" href="../connexion/Deconnexion.php" >Se déconnecter</a>
         <?php }else{ ?>
           <a class="nav-link" href="../connexion">Se connecter</a>
+        <?php } ?>
+
+        <?php if($_SERVER['PHP_SELF']!= '/projet-web/serv_projet/homepage/index.php'){ ?>
+          <form method="POST" action="../search/search.php" id="my-form">
+            <input class="form-control" type="text" placeholder="Search" aria-label="Search" style="width:50%;">
+              
+            <select name="type" id="typeselector">
+              <option value="Stage">Stage</option>
+              <option value="Entreprise">Entreprise</option>
+              <?php if(isset($_SESSION['type']) and ($_SESSION['type'] == 'admin' or $_SESSION['type'] == 'pilote' or (isset($_SESSION['droits']) and ($_SESSION['droits'][21]==1)))){ ?>
+                  <option value="Etudiant">Etudiant</option>
+              <?php } ?>
+              <?php if(isset($_SESSION['type']) and ($_SESSION['type'] == 'admin' or $_SESSION['type'] == 'pilote' or (isset($_SESSION['droits']) and ($_SESSION['droits'][16]==1)))){ ?>
+                  <option value="Delegue">Délégué</option>
+              <?php } ?>
+              <?php if(isset($_SESSION['type']) and ($_SESSION['type'] == 'admin' or (isset($_SESSION['droits']) and ($_SESSION['droits'][12]==1)))){ ?>
+                  <option value="Pilote">Pilote</option>
+              <?php } ?>
+
+            </select>
+
+          </form>
         <?php } ?>
 
         <?php if(isset($_SESSION['type']) and ($_SESSION['type'] == 'admin' or $_SESSION['type'] == 'pilote' or (isset($_SESSION['droits']) and ($_SESSION['droits'][13]==1 or $_SESSION['droits'][22]==1)))){ ?>
