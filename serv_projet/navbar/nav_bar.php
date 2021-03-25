@@ -24,7 +24,7 @@
 
         <?php if($_SERVER['PHP_SELF']!= '/projet-web/serv_projet/homepage/index.php'){ ?>
           <form method="POST" action="../search/search.php" id="my-form">
-            <input class="form-control" type="text" placeholder="Search" aria-label="Search" style="width:50%;">
+            <input name="search" class="form-control" type="text" placeholder="Search" aria-label="Search" style="width:50%;margin-left:10%">
               
             <select name="type" id="typeselector">
               <option value="Stage">Stage</option>
