@@ -9,7 +9,7 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
       <div class="navbar-nav">
-        <a class="nav-link active" href="../homepage">Home <span class="sr-only">(current)</span></a>
+        <a class="nav-link active" href="../homepage">Accueil<span class="sr-only">(current)</span></a>
         <a class="nav-link" href="#">support</a>
         <a class="nav-link" href="#">contact</a>
         <?php if(isset($_SESSION['type']) and ($_SESSION['type'] == 'admin' or $_SESSION['type'] == 'pilote' or (isset($_SESSION['droits']) and ($_SESSION['droits'][13]==1 or $_SESSION['droits'][22]==1)))){ ?>

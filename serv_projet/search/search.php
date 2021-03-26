@@ -14,9 +14,10 @@
     ?>
 
     <div id="container">
+        <h3>
         Résultat de la recherche de 
         <?php 
-        echo $_POST["type"].' avec le mots clefs : '.$_POST['search'].'<br>';
+        echo $_POST["type"].' avec le mots clefs : '.$_POST['search'].'</h3>';
         try{
             $bdd = new PDO('mysql:host=127.0.0.1;dbname=web', 'root', '');
         }catch (PDOException $e) {
@@ -26,34 +27,40 @@
 
         switch ($_POST['type']) {
             case 'Stage':
-                $stmt = $bdd->prepare("SELECT * FROM offre_de_stage INNER JOIN entreprise ON offre_de_stage.ID_Entreprise = entreprise.ID WHERE Competence LIKE ? ");
+                $stmt = $bdd->prepare("SELECT Nom, base_de_remuneration, offre_de_stage.ID AS IDStage, nombre_de_places, Competence, types_de_promotions_concernees, Duree, Date_de_creation FROM offre_de_stage INNER JOIN entreprise ON offre_de_stage.ID_Entreprise = entreprise.ID WHERE Competence LIKE ? ");
                 $stmt->execute(array('%'.$_POST["search"].'%'));
                 $rtrn=$stmt->fetch();
                 while($rtrn){
                     ?>
     
-                    <div>
-                    ID Stage : <?=$rtrn['ID'];?>
-                    <br>
-                    Entreprise : <?=$rtrn['Nom'];?>
-                    <br>
-                    Nombre de places : <?=$rtrn['nombre_de_places'];?>
-                    <br>
-                    Competences demandés : <?=$rtrn['Competence'];?>
-                    <br>
-                    Niveau d'études : <?=$rtrn['types_de_promotions_concernees'];?>
-                    <br>
-                    Durée (en mois): <?=$rtrn['Duree'];?>
-                    <br>
-                    Date de création : <?=$rtrn['Date_de_creation'];?>
-                    <br>
-                    Rémunération : 
-                    <?php
-                    if ($rtrn['base_de_remuneration']!=NULL){
-                        echo $rtrn['base_de_remuneration'];
-                    }else{
-                        echo 'Non attribué';
-                    };?>
+                    <div class='resultat'>
+                        <h2><?=$rtrn['Nom'];?> :  <?=$rtrn['types_de_promotions_concernees'];?> (<?=$rtrn['Duree'];?> mois) </h2>
+                        <br>
+                        <div class='deuxieme'> Competences demandés : <?=$rtrn['Competence'];?> </div>
+                        <br>
+                        <div class='troisieme'>Niveau d'études : <?=$rtrn['types_de_promotions_concernees'];?></div>
+                        <br>
+                        <div class='reste'>
+                            Nombre de places : <?=$rtrn['nombre_de_places'];?>
+                            <br>
+                            Durée (en mois): <?=$rtrn['Duree'];?>
+                            <br>
+                            Rémunération : 
+                            <?php
+                                if ($rtrn['base_de_remuneration']!=NULL){
+                                    echo $rtrn['base_de_remuneration'];
+                                }else{
+                                    echo 'Non attribué';
+                                };
+                            ?>
+                            <br>
+                            Entreprise : <?=$rtrn['Nom'];?>
+                            <br>
+                            ID Stage : <?=$rtrn['IDStage'];?>
+                            <br>
+                            Date de création : <?=$rtrn['Date_de_creation'];?>
+                            <br>
+                        </div>
                     </div>
                     <?php
                     $rtrn=$stmt->fetch();
@@ -66,33 +73,38 @@
                 $rtrn=$stmt->fetch();
                 while($rtrn){
                     ?>
-                    <div>
-                    ID Entreprise : <?=$rtrn['ID'];?>
+                    <div class='resultat'>
+                    <h2><?=$rtrn['Nom'];?></h2>
                     <br>
-                    Entreprise : <?=$rtrn['Nom'];?>
+                    <div class="deuxieme">Secteur d'activité : <?=$rtrn['Secteur_d_activite'];?></div>
                     <br>
-                    Secteur d'activité : <?=$rtrn['Secteur_d_activite'];?>
+                    <div class="troisieme">Localité : <?=$rtrn['Localite'];?></div>
                     <br>
-                    Localité : <?=$rtrn['Localite'];?>
-                    <br>
-                    Note : 
-                    <?php
-                    if ($rtrn['Note']!=NULL){
-                        echo $rtrn['Note'];
-                    }else{
-                        echo 'Non attribué';
-                    };?>
-                    <br>
-                    Confiance du pilote : 
-                    <?php
-                    if ($rtrn['Confiance_du_pilote']!=NULL){
-                        echo $rtrn['Confiance_du_pilote'];
-                    }else{
-                        echo 'Non attribué';
-                    };?>
-                    <br>
-                    Stagiaire CESI acceptés : <?=$rtrn['Stagiaire_CESI_acceptes'];?>
+                        <div class="reste">
+                            Note : 
+                            <?php
+                            if ($rtrn['Note']!=NULL){
+                                echo $rtrn['Note'];
+                            }else{
+                                echo 'Non attribué';
+                            };?>
+                            <br>
+                            Confiance du pilote : 
+                            <?php
+                                if ($rtrn['Confiance_du_pilote']!=NULL){
+                                    echo $rtrn['Confiance_du_pilote'];
+                                }else{
+                                    echo 'Non attribué';
+                                };
+                                ?>
+                            <br>
+                            Stagiaire CESI acceptés : <?=$rtrn['Stagiaire_CESI_acceptes'];?>
+                            <br>
+                            ID Entreprise : <?=$rtrn['ID'];?>
+                            <br>
+                        </div>
                     </div>
+                    
                     <?php
                     $rtrn=$stmt->fetch();
                 }
@@ -104,19 +116,17 @@
                 $rtrn=$stmt->fetch();
                 while($rtrn){
                     ?>
-                    <div>
-                    ID Etudiant : <?=$rtrn['ID_Utilisateur'];?>
-                    <br>
-                    Nom d'utilisateur : <?=$rtrn['Username'];?>
-                    <br>
-                    Nom : <?=$rtrn['Nom'];?>
-                    <br>
-                    Prenom : <?=$rtrn['Prenom'];?>
-                    <br>
-                    ID Promotion : <?=$rtrn['ID_Promotion'];?>
-                    <br>
-                    Nom de promotion : <?=$rtrn['NomPromotion'];?>
-                    <br>
+                    <div class='resultat'>
+                        <h2><?=$rtrn['Username'];?></h2>
+                        <div class="deuxieme">Nom : <?=$rtrn['Nom'];?></div>
+                        <div class="troisieme">Prenom : <?=$rtrn['Prenom'];?></div>
+                        <div class="reste50">
+                            ID Promotion : <?=$rtrn['ID_Promotion'];?>
+                            <br>
+                            Nom de promotion : <?=$rtrn['NomPromotion'];?>
+                            <br>
+                            ID Etudiant : <?=$rtrn['ID_Utilisateur'];?>
+                        </div>
                     </div>
                     <?php
                     $rtrn=$stmt->fetch();
@@ -129,18 +139,15 @@
                 $rtrn=$stmt->fetch();
                 while($rtrn){
                     ?>
-                    <div>
-                    ID Delegué : <?=$rtrn['ID_Utilisateur'];?>
-                    <br>
-                    Nom d'utilisateur : <?=$rtrn['Username'];?>
-                    <br>
-                    Nom : <?=$rtrn['Nom'];?>
-                    <br>
-                    Prenom : <?=$rtrn['Prenom'];?>
-                    <br>
-                    Droits : <?=$rtrn['Droits'];?>
-                    <br>
-
+                    <div class='resultat'>
+                        <h2><?=$rtrn['Username'];?></h2>                       
+                        <div class="deuxieme">Nom : <?=$rtrn['Nom'];?></div>
+                        <div class="troisieme">Prenom : <?=$rtrn['Prenom'];?></div>
+                        <div class="reste50">
+                            Droits : <?=$rtrn['Droits'];?>
+                            <br>
+                            ID Delegué : <?=$rtrn['ID_Utilisateur'];?>
+                        </div>
                     </div>
                     <?php
                     $rtrn=$stmt->fetch();
@@ -153,16 +160,13 @@
                 $rtrn=$stmt->fetch();
                 while($rtrn){
                     ?>
-                    <div>
-                    ID Pilote : <?=$rtrn['ID_Utilisateur'];?>
-                    <br>
-                    Nom d'utilisateur : <?=$rtrn['Username'];?>
-                    <br>
-                    Nom : <?=$rtrn['Nom'];?>
-                    <br>
-                    Prenom : <?=$rtrn['Prenom'];?>
-                    <br>
-
+                    <div class='resultat'>
+                        <h2><?=$rtrn['Username'];?></h2>
+                        <div class="deuxieme">Nom : <?=$rtrn['Nom'];?></div>
+                        <div class="troisieme">Prenom : <?=$rtrn['Prenom'];?></div>
+                        <div class="reste50">
+                            ID Pilote : <?=$rtrn['ID_Utilisateur'];?>
+                        </div>
                     </div>
                     <?php
                     $rtrn=$stmt->fetch();
