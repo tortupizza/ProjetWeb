@@ -36,6 +36,17 @@
                     <div class='resultat'>
                         <h2><?=$rtrn['Nom'];?> :  <?=$rtrn['types_de_promotions_concernees'];?> (<?=$rtrn['Duree'];?> mois) </h2>
                         <br>
+                        <div class="gestion">
+                            <?php if(isset($_SESSION['type']) and ($_SESSION['type'] == 'admin' or $_SESSION['type'] == 'etudiant')){ ?>
+                                <a class="postuler" href="#">Postuler</a>
+                            <?php } ?>
+                            <?php if(isset($_SESSION['type']) and ($_SESSION['type'] == 'admin' or $_SESSION['type'] == 'pilote' or (isset($_SESSION['droits']) and ($_SESSION['droits'][9]==1)))){ ?>
+                                <a class="modifier" href="#"><img src="../assets/Modifier.png" alt="Modifier" height="40px"></a>
+                            <?php } ?>
+                            <?php if(isset($_SESSION['type']) and ($_SESSION['type'] == 'admin' or $_SESSION['type'] == 'pilote' or (isset($_SESSION['droits']) and ($_SESSION['droits'][10]==1)))){ ?>
+                                <a class="supprimer" href="../stage/supprimer.php?ID=<?=$rtrn['IDStage'];?>"><img src="../assets/Supprimer.png" alt="Supprimer" height="50px"></a>
+                            <?php } ?>
+                        </div>
                         <div class='deuxieme'> Competences demandés : <?=$rtrn['Competence'];?> </div>
                         <br>
                         <div class='troisieme'>Niveau d'études : <?=$rtrn['types_de_promotions_concernees'];?></div>
@@ -75,7 +86,14 @@
                     ?>
                     <div class='resultat'>
                     <h2><?=$rtrn['Nom'];?></h2>
-                    <br>
+                        <div class="gestion">
+                            <?php if(isset($_SESSION['type']) and ($_SESSION['type'] == 'admin' or $_SESSION['type'] == 'pilote' or (isset($_SESSION['droits']) and ($_SESSION['droits'][3]==1)))){ ?>
+                                <a class="modifier" href="#"><img src="../assets/Modifier.png" alt="Modifier" height="40px"></a>
+                            <?php } ?>
+                            <?php if(isset($_SESSION['type']) and ($_SESSION['type'] == 'admin' or $_SESSION['type'] == 'pilote' or (isset($_SESSION['droits']) and ($_SESSION['droits'][5]==1)))){ ?>
+                                <a class="supprimer" href="../entreprise/supprimer.php?ID=<?=$rtrn['ID'];?>"><img src="../assets/Supprimer.png" alt="Supprimer" height="50px"></a>
+                            <?php } ?>
+                        </div>
                     <div class="deuxieme">Secteur d'activité : <?=$rtrn['Secteur_d_activite'];?></div>
                     <br>
                     <div class="troisieme">Localité : <?=$rtrn['Localite'];?></div>
@@ -111,13 +129,21 @@
                 break;
 
             case 'Etudiant':
-                $stmt = $bdd->prepare("SELECT ID_Utilisateur, Username, utilisateur.Nom ,Prenom ,ID_Promotion ,promotion.Nom AS NomPromotion FROM etudiant INNER JOIN utilisateur ON etudiant.ID_Utilisateur = utilisateur.ID INNER JOIN promotion ON etudiant.ID_promotion = promotion.ID WHERE Username LIKE ? ");
+                $stmt = $bdd->prepare("SELECT etudiant.ID, ID_Utilisateur, Username, utilisateur.Nom ,Prenom ,ID_Promotion ,promotion.Nom AS NomPromotion FROM etudiant INNER JOIN utilisateur ON etudiant.ID_Utilisateur = utilisateur.ID INNER JOIN promotion ON etudiant.ID_promotion = promotion.ID WHERE Username LIKE ? ");
                 $stmt->execute(array('%'.$_POST["search"].'%'));
                 $rtrn=$stmt->fetch();
                 while($rtrn){
                     ?>
                     <div class='resultat'>
                         <h2><?=$rtrn['Username'];?></h2>
+                        <div class="gestion">
+                            <?php if(isset($_SESSION['type']) and ($_SESSION['type'] == 'admin' or $_SESSION['type'] == 'pilote' or (isset($_SESSION['droits']) and ($_SESSION['droits'][23]==1)))){ ?>
+                                <a class="modifier" href="#"><img src="../assets/Modifier.png" alt="Modifier" height="40px"></a>
+                            <?php } ?>
+                            <?php if(isset($_SESSION['type']) and ($_SESSION['type'] == 'admin' or $_SESSION['type'] == 'pilote' or (isset($_SESSION['droits']) and ($_SESSION['droits'][24]==1)))){ ?>
+                                <a class="supprimer" href="../etudiant/supprimer.php?ID=<?=$rtrn['ID'];?>"><img src="../assets/Supprimer.png" alt="Supprimer" height="50px"></a>
+                            <?php } ?>
+                        </div>
                         <div class="deuxieme">Nom : <?=$rtrn['Nom'];?></div>
                         <div class="troisieme">Prenom : <?=$rtrn['Prenom'];?></div>
                         <div class="reste50">
@@ -125,7 +151,9 @@
                             <br>
                             Nom de promotion : <?=$rtrn['NomPromotion'];?>
                             <br>
-                            ID Etudiant : <?=$rtrn['ID_Utilisateur'];?>
+                            ID Utilisateur : <?=$rtrn['ID_Utilisateur'];?>
+                            <br>
+                            ID Etudiant : <?=$rtrn['ID'];?>
                         </div>
                     </div>
                     <?php
@@ -134,19 +162,29 @@
                 break;
 
             case 'Delegue':
-                $stmt = $bdd->prepare("SELECT ID_Utilisateur, Username, Nom, Prenom, Droits FROM delegue INNER JOIN utilisateur ON delegue.ID_Utilisateur = utilisateur.ID WHERE Username LIKE ? ");
+                $stmt = $bdd->prepare("SELECT delegue.ID, ID_Utilisateur, Username, Nom, Prenom, Droits FROM delegue INNER JOIN utilisateur ON delegue.ID_Utilisateur = utilisateur.ID WHERE Username LIKE ? ");
                 $stmt->execute(array('%'.$_POST["search"].'%'));
                 $rtrn=$stmt->fetch();
                 while($rtrn){
                     ?>
                     <div class='resultat'>
-                        <h2><?=$rtrn['Username'];?></h2>                       
+                        <h2><?=$rtrn['Username'];?></h2>
+                        <div class="gestion">
+                            <?php if(isset($_SESSION['type']) and ($_SESSION['type'] == 'admin' or $_SESSION['type'] == 'pilote' or (isset($_SESSION['droits']) and ($_SESSION['droits'][18]==1)))){ ?>
+                                <a class="modifier" href="#"><img src="../assets/Modifier.png" alt="Modifier" height="40px"></a>
+                            <?php } ?>
+                            <?php if(isset($_SESSION['type']) and ($_SESSION['type'] == 'admin' or $_SESSION['type'] == 'pilote' or (isset($_SESSION['droits']) and ($_SESSION['droits'][19]==1)))){ ?>
+                                <a class="supprimer" href="../delegue/supprimer.php?ID=<?=$rtrn['ID']; ?>"> <img src="../assets/Supprimer.png" alt="Supprimer" height="50px"></a>
+                            <?php } ?>
+                        </div>              
                         <div class="deuxieme">Nom : <?=$rtrn['Nom'];?></div>
                         <div class="troisieme">Prenom : <?=$rtrn['Prenom'];?></div>
                         <div class="reste50">
                             Droits : <?=$rtrn['Droits'];?>
                             <br>
-                            ID Delegué : <?=$rtrn['ID_Utilisateur'];?>
+                            ID Delegué : <?=$rtrn['ID'];?>
+                            <br>
+                            ID Utilisateur : <?=$rtrn['ID_Utilisateur'];?>
                         </div>
                     </div>
                     <?php
@@ -155,17 +193,27 @@
                 break;
 
             case 'Pilote':
-                $stmt = $bdd->prepare("SELECT ID_Utilisateur, Username, Nom, Prenom FROM pilote INNER JOIN utilisateur ON pilote.ID_Utilisateur = utilisateur.ID WHERE Username LIKE ? ");
+                $stmt = $bdd->prepare("SELECT pilote.ID, ID_Utilisateur, Username, Nom, Prenom FROM pilote INNER JOIN utilisateur ON pilote.ID_Utilisateur = utilisateur.ID WHERE Username LIKE ? ");
                 $stmt->execute(array('%'.$_POST["search"].'%'));
                 $rtrn=$stmt->fetch();
                 while($rtrn){
                     ?>
                     <div class='resultat'>
                         <h2><?=$rtrn['Username'];?></h2>
+                        <div class="gestion">
+                            <?php if(isset($_SESSION['type']) and ($_SESSION['type'] == 'admin' or (isset($_SESSION['droits']) and ($_SESSION['droits'][14]==1)))){ ?>
+                                <a class="modifier" href="#"><img src="../assets/Modifier.png" alt="Modifier" height="40px"></a>
+                            <?php } ?>
+                            <?php if(isset($_SESSION['type']) and ($_SESSION['type'] == 'admin' or (isset($_SESSION['droits']) and ($_SESSION['droits'][15]==1)))){ ?>
+                                <a class="supprimer" href="../pilote/supprimer.php?ID=<?=$rtrn['ID'];?>"><img src="../assets/Supprimer.png" alt="Supprimer" height="50px"></a>
+                            <?php } ?>
+                        </div>
                         <div class="deuxieme">Nom : <?=$rtrn['Nom'];?></div>
                         <div class="troisieme">Prenom : <?=$rtrn['Prenom'];?></div>
                         <div class="reste50">
-                            ID Pilote : <?=$rtrn['ID_Utilisateur'];?>
+                            ID Pilote : <?=$rtrn['ID'];?>
+                            <br>
+                            ID Utilisateur : <?=$rtrn['ID_Utilisateur'];?>
                         </div>
                     </div>
                     <?php
