@@ -9,7 +9,7 @@
     grid-template-rows: 15%;
     grid-gap: 10px;
     border: darkorange 1px solid;
-    border-radius: 20px;
+    border-radius: 5px;
 }
 
 h3 {

@@ -16,7 +16,7 @@
     <div id="container">
 
         <p>Entrer dans la barre de recherche le domaine du stage, l'entreprise ou l'utilisateur recherché</p>
-        <form method="POST" action="../search/search.php" id="my-form">
+        <form method="GET" action="../search/search.php" id="my-form">
             <input name="search" class="form-control" type="text" placeholder="Search" aria-label="Search" style="width:50%;">
               
             <select name="type" id="typeselector">
