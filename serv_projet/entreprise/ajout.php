@@ -15,9 +15,9 @@
 
         <div id="milieu">
 
-        <img src="../SS.png" alt="logoStageSupp" id="logo" >
+            <img src="../SS.png" alt="logoStageSupp" id="logo" >
 
-        <br>
+            <br>
 
             <?php if(isset($_SESSION['type']) and ($_SESSION['type'] == 'admin' or $_SESSION['type'] == 'pilote' or (isset($_SESSION['droits']) and $_SESSION['droits'][2]==1))){ ?>
 

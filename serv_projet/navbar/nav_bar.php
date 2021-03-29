@@ -1,8 +1,8 @@
 
-<?php  session_start(); ?>
+<?php session_start(); ?>
 
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <div class="container-fluid">  
+    <div class="container-fluid">
       <a class="navbar-brand" href="../homepage"><img src="../ss.png" alt="ss" height="90" width="120"></a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -58,8 +58,8 @@
                 echo "<br>Tu es délégué avec ces droits : ".$_SESSION['droits'];
               }*/
             ?>
-          <?php } ?>
-
+          </div>
+          <?php } ?> 
         </div>
       </div>
     </div>

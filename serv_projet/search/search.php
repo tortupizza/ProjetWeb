@@ -42,7 +42,7 @@
                                 <a class="postuler" href="#">Postuler</a>
                             <?php } ?>
                             <?php if(isset($_SESSION['type']) and ($_SESSION['type'] == 'admin' or $_SESSION['type'] == 'pilote' or (isset($_SESSION['droits']) and ($_SESSION['droits'][9]==1)))){ ?>
-                                <a class="modifier" href="#"><img src="../assets/Modifier.png" alt="Modifier" height="40px"></a>
+                                <a class="modifier" href="../stage/modifier.php?name=<?=$name?>&ID=<?=$rtrn['IDStage'];?>&next=<?=$next;?>"><img src="../assets/Modifier.png" alt="Modifier" height="40px"></a>
                             <?php } ?>
                             <?php if(isset($_SESSION['type']) and ($_SESSION['type'] == 'admin' or $_SESSION['type'] == 'pilote' or (isset($_SESSION['droits']) and ($_SESSION['droits'][10]==1)))){ ?>
                                 <a class="supprimer" href="../stage/supprimer.php?name=<?=$name?>&ID=<?=$rtrn['IDStage'];?>&next=<?=$next;?>"><img src="../assets/Supprimer.png" alt="Supprimer" height="50px"></a>
@@ -90,7 +90,7 @@
                     <h2><?=$name;?></h2>
                         <div class="gestion">
                             <?php if(isset($_SESSION['type']) and ($_SESSION['type'] == 'admin' or $_SESSION['type'] == 'pilote' or (isset($_SESSION['droits']) and ($_SESSION['droits'][3]==1)))){ ?>
-                                <a class="modifier" href="#"><img src="../assets/Modifier.png" alt="Modifier" height="40px"></a>
+                                <a class="modifier" href="../entreprise/modifier.php?name=<?=$name?>&ID=<?=$rtrn['ID'];?>&next=<?=$next;?>"><img src="../assets/Modifier.png" alt="Modifier" height="40px"></a>
                             <?php } ?>
                             <?php if(isset($_SESSION['type']) and ($_SESSION['type'] == 'admin' or $_SESSION['type'] == 'pilote' or (isset($_SESSION['droits']) and ($_SESSION['droits'][5]==1)))){ ?>
                                 
@@ -142,7 +142,7 @@
                         <h2><?=$name;?></h2>
                         <div class="gestion">
                             <?php if(isset($_SESSION['type']) and ($_SESSION['type'] == 'admin' or $_SESSION['type'] == 'pilote' or (isset($_SESSION['droits']) and ($_SESSION['droits'][23]==1)))){ ?>
-                                <a class="modifier" href="#"><img src="../assets/Modifier.png" alt="Modifier" height="40px"></a>
+                                <a class="modifier" href="../etudiant/modifier.php?name=<?=$name?>&ID=<?=$rtrn['ID'];?>&user=<?=$rtrn['ID_Utilisateur'];?>&next=<?=$next;?>"><img src="../assets/Modifier.png" alt="Modifier" height="40px"></a>
                             <?php } ?>
                             <?php if(isset($_SESSION['type']) and ($_SESSION['type'] == 'admin' or $_SESSION['type'] == 'pilote' or (isset($_SESSION['droits']) and ($_SESSION['droits'][24]==1)))){ ?>
                                 <a class="supprimer" href="../etudiant/supprimer.php?name=<?=$name?>&ID=<?=$rtrn['ID'];?>&user=<?=$rtrn['ID_Utilisateur'];?>&next=<?=$next;?>"><img src="../assets/Supprimer.png" alt="Supprimer" height="50px"></a>
@@ -176,7 +176,7 @@
                         <h2><?=$name;?></h2>
                         <div class="gestion">
                             <?php if(isset($_SESSION['type']) and ($_SESSION['type'] == 'admin' or $_SESSION['type'] == 'pilote' or (isset($_SESSION['droits']) and ($_SESSION['droits'][18]==1)))){ ?>
-                                <a class="modifier" href="#"><img src="../assets/Modifier.png" alt="Modifier" height="40px"></a>
+                                <a class="modifier" href="../delegue/modifier.php?name=<?=$name?>&ID=<?=$rtrn['ID'];?>&user=<?=$rtrn['ID_Utilisateur'];?>&next=<?=$next;?>"><img src="../assets/Modifier.png" alt="Modifier" height="40px"></a>
                             <?php } ?>
                             <?php if(isset($_SESSION['type']) and ($_SESSION['type'] == 'admin' or $_SESSION['type'] == 'pilote' or (isset($_SESSION['droits']) and ($_SESSION['droits'][19]==1)))){ ?>
                                 <a class="supprimer" href="../delegue/supprimer.php?name=<?=$name?>&ID=<?=$rtrn['ID'];?>&user=<?=$rtrn['ID_Utilisateur'];?>&next=<?=$next;?>"> <img src="../assets/Supprimer.png" alt="Supprimer" height="50px"></a>
@@ -208,7 +208,7 @@
                         <h2><?=$name;?></h2>
                         <div class="gestion">
                             <?php if(isset($_SESSION['type']) and ($_SESSION['type'] == 'admin' or (isset($_SESSION['droits']) and ($_SESSION['droits'][14]==1)))){ ?>
-                                <a class="modifier" href="#"><img src="../assets/Modifier.png" alt="Modifier" height="40px"></a>
+                                <a class="modifier" href="../pilote/modifier.php?name=<?=$name?>&ID=<?=$rtrn['ID'];?>&user=<?=$rtrn['ID_Utilisateur'];?>&next=<?=$next;?>"><img src="../assets/Modifier.png" alt="Modifier" height="40px"></a>
                             <?php } ?>
                             <?php if(isset($_SESSION['type']) and ($_SESSION['type'] == 'admin' or (isset($_SESSION['droits']) and ($_SESSION['droits'][15]==1)))){ ?>
                                 <a class="supprimer" href="../pilote/supprimer.php?name=<?=$name?>&ID=<?=$rtrn['ID'];?>&user=<?=$rtrn['ID_Utilisateur'];?>&next=<?=$next;?>"><img src="../assets/Supprimer.png" alt="Supprimer" height="50px"></a>
