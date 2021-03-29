@@ -1,0 +1,28 @@
+
+#logo {
+    width:100px;
+}
+
+#milieu {
+    width: 400px;
+    margin: auto;
+    margin-bottom: 100px;
+    padding-bottom: 20px;
+    padding-top: 10px;
+    text-align: center;
+    border: solid rgba(131, 124, 138, 0.692) 1px;
+}
+
+.Caché {
+    color: rgba(255, 0, 0, 0.692);
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+.tab{
+    padding-right: 10px;
+}
+
+.large {
+    font-size: 1.2em;
+}

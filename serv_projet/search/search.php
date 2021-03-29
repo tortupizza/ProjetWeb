@@ -101,7 +101,7 @@
                     <br>
                     <div class="troisieme">Localité : <?=$rtrn['Localite'];?></div>
                     <br>
-                        <div class="reste">
+                        <div class="resteEM">
                             Note : 
                             <?php
                             if ($rtrn['Note']!=NULL){
