@@ -142,7 +142,7 @@
                         <h2><?=$name;?></h2>
                         <div class="gestion">
                             <?php if(isset($_SESSION['type']) and ($_SESSION['type'] == 'admin' or $_SESSION['type'] == 'pilote' or (isset($_SESSION['droits']) and ($_SESSION['droits'][23]==1)))){ ?>
-                                <a class="modifier" href="../etudiant/modifier.php?name=<?=$name?>&ID=<?=$rtrn['ID'];?>&user=<?=$rtrn['ID_Utilisateur'];?>&next=<?=$next;?>"><img src="../assets/Modifier.png" alt="Modifier" height="40px"></a>
+                                <a class="modifier" href="../etudiant/modifier.php?name=<?=$name?>&user=<?=$rtrn['ID_Utilisateur'];?>&next=<?=$next;?>"><img src="../assets/Modifier.png" alt="Modifier" height="40px"></a>
                             <?php } ?>
                             <?php if(isset($_SESSION['type']) and ($_SESSION['type'] == 'admin' or $_SESSION['type'] == 'pilote' or (isset($_SESSION['droits']) and ($_SESSION['droits'][24]==1)))){ ?>
                                 <a class="supprimer" href="../etudiant/supprimer.php?name=<?=$name?>&ID=<?=$rtrn['ID'];?>&user=<?=$rtrn['ID_Utilisateur'];?>&next=<?=$next;?>"><img src="../assets/Supprimer.png" alt="Supprimer" height="50px"></a>
