@@ -14,40 +14,48 @@
         ?>
         <?php
 
-        if($_SERVER['REQUEST_METHOD']=='POST'){
-            $ID=$_POST["ID"];
-            try{
-                $bdd = new PDO('mysql:host=127.0.0.1;dbname=web', 'root', '');
-            }catch (PDOException $e) {
-                echo "Connexion echouée : " . $e->getMessage();
-            }
+        if(isset($_SESSION['type']) and ($_SESSION['type'] == 'admin' or $_SESSION['type'] == 'pilote' or (isset($_SESSION['droits']) and ($_SESSION['droits'][19]==1)))){ 
 
-            $stmt = $bdd->prepare("DELETE FROM delegue WHERE ID = ? ");
-            $stmt->execute(array($ID));
-            header('Location:'.$_GET['next']);
-            exit();
+            if($_SERVER['REQUEST_METHOD']=='POST'){
+                $ID=$_POST["ID"];
+                try{
+                    $bdd = new PDO('mysql:host=127.0.0.1;dbname=web', 'root', '');
+                }catch (PDOException $e) {
+                    echo "Connexion echouée : " . $e->getMessage();
+                }
 
+                $stmt = $bdd->prepare("DELETE FROM delegue WHERE ID = ? ");
+                $stmt->execute(array($ID));
+                header('Location:'.$_GET['next']);
+                exit();
+
+            }else{
+
+                $ID=$_GET["ID"];
+                $name=$_GET["name"];
+                ?>
+                    <div id="milieu">
+                        <form action="#?next=<?=urlencode($next)?>" method="POST">
+                            <input type="hidden" name="ID" value="<?=$ID?>" />
+                            <p>Voulez vous vraiment supprimer le délégué <?=$name?> ?</p>
+                            <button>
+                                Supprimer le délégué.
+                            </button>
+                        </form>
+                        <br>
+                        <a href="<?=$_GET['next']?>">Non pauvre fou !</a>
+
+                    </div>
+                    <?php
+                }
         }else{
-
-            $ID=$_GET["ID"];
-            $name=$_GET["name"];
-            ?>
-                <div id="milieu">
-                    <form action="#?next=<?=urlencode($next)?>" method="POST">
-                        <input type="hidden" name="ID" value="<?=$ID?>" />
-                        <p>Voulez vous vraiment supprimer le délégué <?=$name?> ?</p>
-                        <button>
-                            Supprimer le délégué.
-                        </button>
-                    </form>
-                    <br>
-                    <a href="<?=$_GET['next']?>">Non pauvre fou !</a>
-
-                </div>
-                <?php
-            }
+            echo "<div id='milieu'>Vous n'avez pas les droits pour vous aventurer ici";
+            echo "<br>" ;
+            echo "<a href='../connexion' class='tab'>Changer d'utilisateur / Se connecter</a></div>";
+        }
 
         ?>
+
                 
         <?php include('../footer/footer.html') ?>
 

@@ -68,8 +68,6 @@
                             <br>
                             Entreprise : <?=$rtrn['Nom'];?>
                             <br>
-                            ID Stage : <?=$rtrn['IDStage'];?>
-                            <br>
                             Date de création : <?=$rtrn['Date_de_creation'];?>
                             <br>
                         </div>
@@ -121,8 +119,6 @@
                             <br>
                             Stagiaire CESI acceptés : <?=$rtrn['Stagiaire_CESI_acceptes'];?>
                             <br>
-                            ID Entreprise : <?=$rtrn['ID'];?>
-                            <br>
                         </div>
                     </div>
                     
@@ -151,13 +147,8 @@
                         <div class="deuxieme">Nom : <?=$rtrn['Nom'];?></div>
                         <div class="troisieme">Prenom : <?=$rtrn['Prenom'];?></div>
                         <div class="reste50">
-                            ID Promotion : <?=$rtrn['ID_Promotion'];?>
-                            <br>
                             Nom de promotion : <?=$rtrn['NomPromotion'];?>
                             <br>
-                            ID Utilisateur : <?=$rtrn['ID_Utilisateur'];?>
-                            <br>
-                            ID Etudiant : <?=$rtrn['ID'];?>
                         </div>
                     </div>
                     <?php
@@ -186,10 +177,6 @@
                         <div class="troisieme">Prenom : <?=$rtrn['Prenom'];?></div>
                         <div class="reste50">
                             Droits : <?=$rtrn['Droits'];?>
-                            <br>
-                            ID Delegué : <?=$rtrn['ID'];?>
-                            <br>
-                            ID Utilisateur : <?=$rtrn['ID_Utilisateur'];?>
                         </div>
                     </div>
                     <?php
@@ -216,11 +203,6 @@
                         </div>
                         <div class="deuxieme">Nom : <?=$rtrn['Nom'];?></div>
                         <div class="troisieme">Prenom : <?=$rtrn['Prenom'];?></div>
-                        <div class="reste50">
-                            ID Pilote : <?=$rtrn['ID'];?>
-                            <br>
-                            ID Utilisateur : <?=$rtrn['ID_Utilisateur'];?>
-                        </div>
                     </div>
                     <?php
                     $rtrn=$stmt->fetch();

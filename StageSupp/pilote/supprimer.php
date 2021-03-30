@@ -14,6 +14,7 @@
         ?>
 
         <?php
+        if(isset($_SESSION['type']) and ($_SESSION['type'] == 'admin' or (isset($_SESSION['droits']) and ($_SESSION['droits'][15]==1)))){
 
             if($_SERVER['REQUEST_METHOD']=='POST'){
                 $ID_utilisateur=$_POST["ID_utilisateur"];
@@ -53,7 +54,12 @@
                 </div>
                 <?php
             }
-
+        
+        }else{
+            echo "<div id='milieu'>Vous n'avez pas les droits pour vous aventurer ici";
+            echo "<br>" ;
+            echo "<a href='../connexion' class='tab'>Changer d'utilisateur / Se connecter</a></div>";
+        }
         ?>
                 
         <?php include('../footer/footer.html') ?>
