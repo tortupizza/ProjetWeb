@@ -52,7 +52,7 @@
 
           <?php if(isset($_SESSION['type'])){ ?>
           <div id='Utilisateur'>
-            <?php echo "Utilisateur : ".$_SESSION["user"]."<br>Rôle : ".$_SESSION["type"]."<br><a href='userpage.html'>Profile</a>";
+            <?php echo "Utilisateur : ".$_SESSION["user"]."<br>Rôle : ".$_SESSION["type"]/*."<br><a href='userpage.html'>Profile</a>"*/;
               
               /*if (isset($_SESSION['droits'])){
                 echo "<br>Tu es délégué avec ces droits : ".$_SESSION['droits'];

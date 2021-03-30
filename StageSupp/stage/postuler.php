@@ -7,7 +7,7 @@
         <?php
             include("../header.html");
         ?>
-        <title>Postuler à <?=$name?></title>
+        <title>Postuler à <?=$_GET['name']?></title>
     </head>
 
     <body>
