@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : mar. 30 mars 2021 à 11:24
+-- Généré le : mar. 30 mars 2021 à 13:45
 -- Version du serveur :  10.4.17-MariaDB
 -- Version de PHP : 7.4.14
 
@@ -111,17 +111,19 @@ CREATE TABLE `entreprise` (
   `Note` decimal(15,2) DEFAULT NULL,
   `Stagiaire_CESI_acceptes` int(11) DEFAULT NULL,
   `Confiance_du_pilote` int(11) DEFAULT NULL,
-  `Localite` varchar(50) DEFAULT NULL
+  `Localite` varchar(50) DEFAULT NULL,
+  `url` varchar(128) DEFAULT NULL,
+  `image` varchar(128) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Déchargement des données de la table `entreprise`
 --
 
-INSERT INTO `entreprise` (`ID`, `Nom`, `Secteur_d_activite`, `Note`, `Stagiaire_CESI_acceptes`, `Confiance_du_pilote`, `Localite`) VALUES
-(1, 'CESI', 'Enseignement', NULL, 12, 15, 'Ecully'),
-(2, 'SAFRAN', 'aéronautique', '0.00', 6, 17, 'Courcouronnes'),
-(3, 'Piraterie Française', 'Piraterie', '0.00', 1, 0, 'eaux internationales');
+INSERT INTO `entreprise` (`ID`, `Nom`, `Secteur_d_activite`, `Note`, `Stagiaire_CESI_acceptes`, `Confiance_du_pilote`, `Localite`, `url`, `image`) VALUES
+(1, 'CESI', 'Enseignement', NULL, 12, 15, 'Ecully', NULL, NULL),
+(2, 'SAFRAN', 'aéronautique', '0.00', 6, 17, 'Courcouronnes', NULL, NULL),
+(3, 'Piraterie Française', 'Piraterie', '0.00', 1, 0, 'eaux internationales', NULL, NULL);
 
 -- --------------------------------------------------------
 
