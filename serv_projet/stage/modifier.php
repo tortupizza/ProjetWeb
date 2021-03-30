@@ -40,9 +40,10 @@ if($rtrn){
         <?php
             include("../navbar/nav_bar.php");
         ?>
-            <h4 style="text-align: center;">Modifier les charactéristique de : <?=$name;?> </h4>
-            <div id='milieu'>
-                 <?php if(isset($_SESSION['type']) and ($_SESSION['type'] == 'admin' or $_SESSION['type'] == 'pilote' or (isset($_SESSION['droits']) and $_SESSION['droits'][2]==1))){ ?>
+
+        <h4 style="text-align: center;">Modifier les charactéristique de : <?=$name;?> </h4>
+        <div id='milieu'>
+            <?php if(isset($_SESSION['type']) and ($_SESSION['type'] == 'admin' or $_SESSION['type'] == 'pilote' or (isset($_SESSION['droits']) and $_SESSION['droits'][2]==1))){ ?>
 
 
                 <form method="POST" action="BDDmodifier.php?next=<?=$next?>" id="my-form">
@@ -104,12 +105,12 @@ if($rtrn){
                 </form>
             
             <?php }else{ ?>
-                <div class="large"> Vous n'avez pas les droits pour modifier des stages. </div>
-                <br>
-                <a href="../connexion" class="tab">Changer d'utilisateur / Se connecter</a>
-            <?php } ?>
+        <div class="large"> Vous n'avez pas les droits pour modifier des stages. </div>
+        <br>
+        <a href="../connexion" class="tab">Changer d'utilisateur / Se connecter</a>
+        <?php } ?>
 
-            </div>
+        </div>
                 
         <?php include('../footer/footer.html') ?>
 

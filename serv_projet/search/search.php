@@ -39,7 +39,7 @@
                         <br>
                         <div class="gestion">
                             <?php if(isset($_SESSION['type']) and ($_SESSION['type'] == 'admin' or $_SESSION['type'] == 'etudiant')){ ?>
-                                <a class="postuler" href="#">Postuler</a>
+                                <a class="postuler" href="../stage/postuler.php?name=<?=$name?>&ID=<?=$rtrn['IDStage'];?>&next=<?=$next;?>">Postuler</a>
                             <?php } ?>
                             <?php if(isset($_SESSION['type']) and ($_SESSION['type'] == 'admin' or $_SESSION['type'] == 'pilote' or (isset($_SESSION['droits']) and ($_SESSION['droits'][9]==1)))){ ?>
                                 <a class="modifier" href="../stage/modifier.php?name=<?=$name?>&ID=<?=$rtrn['IDStage'];?>&next=<?=$next;?>"><img src="../assets/Modifier.png" alt="Modifier" height="40px"></a>
