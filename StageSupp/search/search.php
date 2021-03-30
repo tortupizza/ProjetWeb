@@ -28,8 +28,8 @@
         
         switch ($_GET['type']) {
             case 'Stage':
-                $stmt = $bdd->prepare("SELECT Nom, base_de_remuneration, offre_de_stage.ID AS IDStage, nombre_de_places, Competence, types_de_promotions_concernees, Duree, Date_de_creation FROM offre_de_stage INNER JOIN entreprise ON offre_de_stage.ID_Entreprise = entreprise.ID WHERE Competence LIKE ? OR Nom LIKE ?");
-                $stmt->execute(array('%'.$_GET["search"].'%','%'.$_GET["search"].'%'));
+                $stmt = $bdd->prepare("SELECT Nom, base_de_remuneration, offre_de_stage.ID AS IDStage, nombre_de_places, Competence, types_de_promotions_concernees, Duree, Date_de_creation FROM offre_de_stage INNER JOIN entreprise ON offre_de_stage.ID_Entreprise = entreprise.ID WHERE Competence LIKE ? OR Nom LIKE ? OR types_de_promotions_concernees LIKE ?");
+                $stmt->execute(array('%'.$_GET["search"].'%','%'.$_GET["search"].'%','%'.$_GET["search"].'%'));
                 $rtrn=$stmt->fetch();
                 while($rtrn){
                     $name=$rtrn['Nom'].' : '.$rtrn['types_de_promotions_concernees'].' ('.$rtrn['Duree'].'mois)';
