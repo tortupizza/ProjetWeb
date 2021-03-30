@@ -21,7 +21,7 @@ if(move_uploaded_file($_FILES[$ID_utilisateur."_".$IDstage."_CV"]['tmp_name'],$u
         $data = array($IDstage,$ID_utilisateur,1,$uploadfileCV,$uploadfileLM);
         $stmt = $bdd->prepare("INSERT INTO candidature (ID_Offre_de_stage, ID_Etudiant, etape, CV ,lettre_de_motivation) VALUES (?,?,?,?,?);");
         $stmt->execute($data);
-        header('Location: ../homepage');
+        header('Location:'.$_GET['next']);
         exit();
 
     }else{

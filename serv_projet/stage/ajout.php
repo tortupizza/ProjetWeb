@@ -81,7 +81,7 @@
                     </p>
 
                     <br>
-                    <button type="submit" class="large">Inscrire</button>
+                    <button type="submit" class="large">Ajouter</button>
 
                 </form>
             

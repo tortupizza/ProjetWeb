@@ -50,7 +50,7 @@
             </form>
           <?php } ?>
 
-          <?php if(isset($_SESSION['type']) and ($_SESSION['type'] == 'admin' or $_SESSION['type'] == 'pilote' or (isset($_SESSION['droits']) and ($_SESSION['droits'][13]==1 or $_SESSION['droits'][22]==1)))){ ?>
+          <?php if(isset($_SESSION['type'])){ ?>
           <div id='Utilisateur'>
             <?php echo "Utilisateur : ".$_SESSION["user"]."<br>Rôle : ".$_SESSION["type"]."<br><a href='userpage.html'>Profile</a>";
               
