@@ -44,7 +44,8 @@ else {
                     <h1> <?php echo $donnees['Nom']; ?> </h1>
                 </header>
                 
-                <main>			 
+                <main>
+
                     <div class="align"> <a href="<?php echo $donnees['Url']; ?>"> <img src="<?php echo $donnees['Logo']; ?>" height="150px" width="150px" alt="logo"/> </a> </div>			
         
                     <div class="align" id="h2"> Nombre de stagiaires CESI pris : <?php echo $donnees['Stagiaire_CESI_acceptes']; ?> </div> 
@@ -88,7 +89,7 @@ else {
                                 <td> <?php echo $donnees1['Duree']; ?> </td>
                                 <td> <?php echo $donnees1['base_de_remuneration']; ?> </td>
                                 <td> <?php echo $donnees1['nombre_de_places']; ?>  </td>
-                                <td> <a href="Stage.php?ref=<?php $donnees1['ID']; ?>" >Voir plus </a> </td>
+                                <td> <a href="../stage/Stage.php?ref=<?= $donnees1['ID']; ?>" >Voir plus </a> </td>
                             <?php
                                 $i = $i+1;
                                 }

@@ -33,7 +33,7 @@
         <a class="nav-item nav-link" href="../connexion">Se connecter</a>
       <?php } ?>
 
-      <?php if($_SERVER['PHP_SELF']!= '/projet-web/StageSupp/homepage/index.php'){ ?>
+      <?php if($_SERVER['PHP_SELF']!= '/projet-web/StageSupp/homepage/index.php' and $_SERVER['PHP_SELF'] != '/homepage/index.php'){ ?>
         <form method="GET" action="../search/search.php" id="my-form" class="nav-item">
           <input name="search" class="form-control" type="text" placeholder="Search" aria-label="Search" style="width:50%;margin-left:10%">
             
