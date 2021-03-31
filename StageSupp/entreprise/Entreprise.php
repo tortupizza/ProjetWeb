@@ -50,7 +50,7 @@ else {
                     <div class="align" id="h2"> Nombre de stagiaires CESI pris : <?php echo $donnees['Stagiaire_CESI_acceptes']; ?> </div> 
                     <div class="align" id="h3"> Evaluation des stagiaires : <?php echo $donnees['Note']; ?> </div> 
                     <div class="align" id="h4"> Note des pilotes : <?php echo $donnees['Confiance_du_pilote']; ?> </div>
-                    <div class="align" id="h4"> Localité : <?php echo $donnees['Localite']; ?> </div>
+                    <div class="align" id="h5"> Localité : <?php echo $donnees['Localite']; ?> </div>
                     
                     <br><br>
 
