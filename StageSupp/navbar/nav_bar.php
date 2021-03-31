@@ -57,8 +57,11 @@
       <?php if(isset($_SESSION['type'])){ ?>
       <div id='Utilisateur' class="nav-item">
         <br>
-        <?php echo "Utilisateur : ".$_SESSION["user"]."<br>Rôle : ".$_SESSION["type"]/*."<br><a href='userpage.html'>Profile</a>"*/;
-          
+        <?php echo "Utilisateur : ".$_SESSION["user"]."<br>Rôle : ".$_SESSION["type"];
+          if (isset($_SESSION['droits'])){
+            echo "<a href='../profile/droits.php'>&nbsp&nbspDroits</a>";
+          }
+                 
           /*if (isset($_SESSION['droits'])){
             echo "<br>Tu es délégué avec ces droits : ".$_SESSION['droits'];
           }*/
