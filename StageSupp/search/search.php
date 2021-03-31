@@ -35,7 +35,7 @@
                     $name=$rtrn['Nom'].' : '.$rtrn['types_de_promotions_concernees'].' ('.$rtrn['Duree'].'mois)';
                     ?>
                     <div class='resultat'>
-                        <h2><?= $name ?></h2>
+                        <h2><a href='../stage/Stage.php?ref=<?=$rtrn['IDStage']?>'> <?= $name ?> </a> </h2>
                         <br>
                         <div class="gestion">
                             <?php if(isset($_SESSION['type']) and ($_SESSION['type'] == 'admin' or $_SESSION['type'] == 'etudiant')){ ?>

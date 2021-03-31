@@ -45,7 +45,7 @@ else {
                 </header>
                 
                 <main>			 
-                    <div class="align"> <a href="<?php echo $donnees['Url']; ?>"> <img src="<?php echo $donnees['Logo']; ?>" height="150px" width="150px" /> </a> </div>			
+                    <div class="align"> <a href="<?php echo $donnees['Url']; ?>"> <img src="<?php echo $donnees['Logo']; ?>" height="150px" width="150px" alt="logo"/> </a> </div>			
         
                     <div class="align" id="h2"> Nombre de stagiaires CESI pris : <?php echo $donnees['Stagiaire_CESI_acceptes']; ?> </div> 
                     <div class="align" id="h3"> Evaluation des stagiaires : <?php echo $donnees['Note']; ?> </div> 
