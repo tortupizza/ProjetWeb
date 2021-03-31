@@ -85,7 +85,7 @@
                     $name=$rtrn['Nom'];
                     ?>
                     <div class='resultat'>
-                    <h2><?=$name;?></h2>
+                    <h2><a href='../entreprise/Entreprise.php?ref=<?=$rtrn['ID'] ?>'> <?=$name;?> </a> </h2>
                         <div class="gestion">
                             <?php if(isset($_SESSION['type']) and ($_SESSION['type'] == 'admin' or $_SESSION['type'] == 'pilote' or (isset($_SESSION['droits']) and ($_SESSION['droits'][3]==1)))){ ?>
                                 <a class="modifier" href="../entreprise/modifier.php?name=<?=$name?>&ID=<?=$rtrn['ID'];?>&next=<?=$next;?>"><img src="../assets/Modifier.png" alt="Modifier" height="40px"></a>

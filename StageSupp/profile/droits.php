@@ -5,7 +5,7 @@
         <?php
             include("../header.html");
         ?>
-        <title>titre</title>
+        <title>Droits</title>
     </head>
 
     <body>
