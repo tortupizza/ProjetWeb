@@ -55,9 +55,12 @@ $next = urlencode($_SERVER['PHP_SELF'].'?ref='.$_GET['ref']);
 		
 		<main>			 
 			<div class="align"> <a href="../entreprise/Entreprise.php?ref=<?php echo $donnees['ID_Entreprise']; ?>"> <img src="<?php //$donnees1['Logo']; ?>" height="150px" width="150px" alt="Page entreprise" />  </a> </div>	
+			
+			<?php if(isset($_SESSION['type']) and ($_SESSION['type'] == 'admin' or $_SESSION['type'] == 'etudiant')){ ?>
 			<div id="block1" class="align"> <a href="StagePost.php?ref=<?php echo $donnees['ID']; ?>"> <button id="btn_w"> Ajouter à la Wishlist </button> </a> </div> 
 			<div id="block2" class="align"> <a class="postuler" href="../stage/postuler.php?name=<?=$name?>&ID=<?=$rtrn['ID'];?>&next=<?=$next;?>"> <button id="btn_p">Postuler</button> </a> </div> 
-	
+			<?php } ?>
+			
 			<br><br><br>
 			
 			<div id="tabs">
