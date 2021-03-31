@@ -1,0 +1,4 @@
+AuthName "Page d'administration protegee"
+AuthType Basic
+AuthUserFile "/passwd/.htpasswd"
+Require valid-user
